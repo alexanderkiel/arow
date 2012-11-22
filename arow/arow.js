@@ -22,10 +22,10 @@ var _spec = {};
 			["application/json;profile=\"urn:org.restfulobjects/objectaction\"", handleObjectActionRepresentation],
 			["application/json; profile=\"urn:org.restfulobjects/objectaction\"", handleObjectActionRepresentation],
 			// 1.0.0
-			["application/json; profile=\"urn:org.restfulobjects:repr-types/object-action\"", handleObjectActionRepresentation],
-			["application/json; profile=\"urn:org.restfulobjects:repr-types/action-result\"", handleActionResultRepresentation],
-			["application/json; profile=\"urn:org.restfulobjects:repr-types/object\"", handleDomainObjectRepresentation],
-			["application/json; profile=\"urn:org.restfulobjects:repr-types/object-collection\"", handleObjectCollectionRepresentation]
+			["application/json;profile=\"urn:org.restfulobjects:repr-types/object-action\"", handleObjectActionRepresentation],
+			["application/json;profile=\"urn:org.restfulobjects:repr-types/action-result\"", handleActionResultRepresentation],
+			["application/json;profile=\"urn:org.restfulobjects:repr-types/object\"", handleDomainObjectRepresentation],
+			["application/json;profile=\"urn:org.restfulobjects:repr-types/object-collection\"", handleObjectCollectionRepresentation]
 		];
 
 	/**
@@ -891,15 +891,15 @@ var _spec = {};
 		} else if (json.memberType === "collection") {
 			var describedby = jsonGetNow(grepLink(json.links, "describedby").href);
 			var elementtypeLink = grepLink(describedby.links, "elementtype");
-			return elementtypeLink.href.substring(elementtypeLink.href.indexOf("/domainTypes/") + "/domainTypes/".length);
+			return elementtypeLink.href.substring(elementtypeLink.href.indexOf("/domain-types/") + "/domain-types/".length);
 		} else {
 			var elementtypeLink = grepLink(json.links, "elementtype");
 			if (elementtypeLink !== undefined) {
-				return elementtypeLink.href.substring(elementtypeLink.href.indexOf("/domainTypes/") + "/domainTypes/".length);
+				return elementtypeLink.href.substring(elementtypeLink.href.indexOf("/domain-types/") + "/domain-types/".length);
 			}
 			var describedbyLink = grepLink(json.links, "describedby");
 			if (describedbyLink !== undefined) {
-				return describedbyLink.href.substring(describedbyLink.href.indexOf("/domainTypes/") + "/domainTypes/".length);
+				return describedbyLink.href.substring(describedbyLink.href.indexOf("/domain-types/") + "/domain-types/".length);
 			}
 		}
 	}
@@ -1124,7 +1124,7 @@ var RO = {};
 	}
 
 	RO.DomainObjectDescr = function(raw) {
-		this.friendlyName = raw.extensions.friendlyName;
+		this.friendlyName = raw.friendlyName;
 		this.completeType = firstByRel(raw.links, 'self').href;
 		this.type = this.completeType.substring(1+this.completeType.lastIndexOf('/'));
 		this.actions = {};
