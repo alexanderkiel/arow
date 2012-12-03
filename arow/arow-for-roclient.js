@@ -44,7 +44,7 @@ var AROW = {};
 			// 1.0.0
 //			["application/json; profile=\"urn:org.restfulobjects:repr-types/object-action\"", handleObjectActionRepresentation],
 //			["application/json; profile=\"urn:org.restfulobjects:repr-types/action-result\"", handleActionResultRepresentation],
-			["application/json; profile=\"urn:org.restfulobjects:repr-types/object\"", handleDomainObjectRepresentation],
+			["application/json;profile=\"urn:org.restfulobjects:repr-types/object\"", handleDomainObjectRepresentation],
 //			["application/json; profile=\"urn:org.restfulobjects:repr-types/object-collection\"", handleObjectCollectionRepresentation]
 		];
 
