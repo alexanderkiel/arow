@@ -612,7 +612,7 @@ var RO = {};
 	}
 
 	RO.ActionParamDescr = function(raw) {
-		this.friendlyName = raw.extensions.friendlyName;
+		this.friendlyName = raw.friendlyName || raw.extensions.friendlyName;
 		this.name = raw.name;
 		this.optional = raw.optional;
 		this.completeType = firstByRel(raw.links, _spec.rels.returntype).href;
