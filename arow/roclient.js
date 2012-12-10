@@ -540,8 +540,8 @@ var RO = {};
 					elementtype: "urn:org.restfulobjects:rels/elementtype"
 				},
 				reprTypes: {
-					propertyDescription: "application/json; profile=\"urn:org.restfulobjects:repr-types/property-description\"",
-					collectionDescription: "application/json; profile=\"urn:org.restfulobjects:repr-types/collection-description\""
+					propertyDescription: "application/json;profile=\"urn:org.restfulobjects:repr-types/property-description\"",
+					collectionDescription: "application/json;profile=\"urn:org.restfulobjects:repr-types/collection-description\""
 				},
 				resultTypeParam: "resultType",
 				propertyType: "returnType"
