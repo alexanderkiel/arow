@@ -600,7 +600,13 @@ var RO = {};
 		this.completeType = firstByRel(raw.links, _spec.rels.returntype).href;
 		this.type = this.completeType.substring(1+this.completeType.lastIndexOf('/'));
 		this.maxLength = raw.maxLength;
-		this.memberOrder = raw.extensions.memberOrder || 999;
+        if (raw.memberOrder !== undefined) {
+		    this.memberOrder = raw.memberOrder;
+        } else if (raw.extensions.memberOrder !== undefined) {
+            this.memberOrder = raw.extensions.memberOrder;
+        } else {
+            this.memberOrder = 999;
+        }
 		this.optional = (raw.optional !== undefined ? raw.optional : true);
 	}
 
