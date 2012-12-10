@@ -99,7 +99,7 @@ var RO = {};
 	RO.DomainObject.prototype.initFromRaw = function(raw) {
 		this.raw = raw;
 		this.href = firstByRel(raw.links,'self').href;
-		if (_spec.optionalCapabilities.domainModel === "formal" || _spec.optionalCapabilities.domainModel === "rich") {
+		if (_spec.optionalCapabilities.domainModel === "formal" || _spec.optionalCapabilities.domainModel === "rich" || _spec.optionalCapabilities.domainModel === "selectable") {
 			this.description = RO.Model.byUrl(firstByRel(raw.links,'describedby').href);
 			this.isService = this.description.isService;
 		} else {
@@ -173,7 +173,7 @@ var RO = {};
 		this.raw = raw;
 		this.title = raw.title;
 		this.persistLink = firstByRel(raw.links, _spec.rels.persist);
-		if (_spec.optionalCapabilities.domainModel === "formal" || _spec.optionalCapabilities.domainModel === "rich") {
+		if (_spec.optionalCapabilities.domainModel === "formal" || _spec.optionalCapabilities.domainModel === "rich" || _spec.optionalCapabilities.domainModel === "selectable") {
 			this.description = RO.Model.byUrl(firstByRel(raw.links, "describedby").href);
 		}
 		var properties = [];
@@ -231,7 +231,7 @@ var RO = {};
 	RO.Property = function(objectDescription, raw) {
 		this.raw = raw;
 		this.name = raw.id;
-		if (_spec.optionalCapabilities.domainModel === "formal" || _spec.optionalCapabilities.domainModel === "rich") {
+		if (_spec.optionalCapabilities.domainModel === "formal" || _spec.optionalCapabilities.domainModel === "rich" || _spec.optionalCapabilities.domainModel === "selectable") {
 			this.description = objectDescription.properties[this.name];
 			this.friendlyName = (this.description !== undefined && this.description.friendlyName !== undefined ? this.description.friendlyName : unCamelCase(this.name));
 			this.returnType = this.description.type;
@@ -290,7 +290,7 @@ var RO = {};
 
 	RO.Collection = function(objectDescription, raw) {
 		this.name = raw.id;
-		if (_spec.optionalCapabilities.domainModel === "formal" || _spec.optionalCapabilities.domainModel === "rich") {
+		if (_spec.optionalCapabilities.domainModel === "formal" || _spec.optionalCapabilities.domainModel === "rich" || _spec.optionalCapabilities.domainModel === "selectable") {
 			this.description = objectDescription.collections[this.name];
 			this.friendlyName = (this.description !== undefined && this.description.friendlyName !== undefined ? this.description.friendlyName : unCamelCase(this.name));
 		} else {
@@ -344,7 +344,7 @@ var RO = {};
 		this.raw = raw;
 		this.id = raw.id;
 		this.name = raw.id;
-		if (_spec.optionalCapabilities.domainModel === "formal" || _spec.optionalCapabilities.domainModel === "rich") {
+		if (_spec.optionalCapabilities.domainModel === "formal" || _spec.optionalCapabilities.domainModel === "rich" || _spec.optionalCapabilities.domainModel === "selectable") {
 			this.description = objectDescription.actions[this.id];
 			this.friendlyName = (raw.extensions && raw.extensions.friendlyName) || (this.description && this.description.friendlyName) || unCamelCase(this.id);
 		} else {
