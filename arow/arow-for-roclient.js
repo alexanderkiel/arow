@@ -388,7 +388,7 @@ var AROW = {};
 					$.each(arg.choices, function (i, choice) {
 						$('<option/>')
 							.attr("value", JSON.stringify(choice))
-							.html(choice.title)
+							.html(choice.title || choice)
 							.appendTo(select);
 					});
 				} else {
