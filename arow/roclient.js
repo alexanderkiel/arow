@@ -179,7 +179,7 @@ var RO = {};
 		var properties = [];
 		var that = this;
 		$.each(this.persistLink.arguments.members, function() {
-			if (this.memberType === 'property') {
+			if (this.memberType === undefined || this.memberType === 'property') {
 				properties.push(new RO.Property(that.description, this));
 			}
 		});
