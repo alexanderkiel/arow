@@ -387,7 +387,7 @@ var AROW = {};
 					select = $('<select/>').attr("name", arg.id).appendTo(li);
 					$.each(arg.choices, function (i, choice) {
 						$('<option/>')
-							.attr("value", JSON.stringify(choice))
+							.attr("value", (choice.href || choice))
 							.html(choice.title || choice)
 							.appendTo(select);
 					});
